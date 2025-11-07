@@ -1,14 +1,14 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 
 @Controller('messages')
 export class MessagesController {
-  // GET /messages
+  @Get()
   findAll() {
     return 'This action returns all messages';
   }
 
-  // GET /messages/:id
-  findOne() {
-    return 'This action returns one message';
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return `This action returns the message #${id}`;
   }
 }

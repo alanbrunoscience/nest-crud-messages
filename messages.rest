@@ -1,0 +1,13 @@
+@baseUrl = http://localhost:3000
+
+### 1. MessagesController (GET - findAll)
+
+# @name findAll
+
+GET {{baseUrl}}/messages
+
+### 2. MessagesController (GET - findOne)
+
+# @name findOne
+
+GET {{baseUrl}}/messages/1
