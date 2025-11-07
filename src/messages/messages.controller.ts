@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post } from '@nestjs/common';
 
 @Controller('messages')
 export class MessagesController {
@@ -12,5 +12,10 @@ export class MessagesController {
   findOne(@Param('id') id: string) {
     // The return value can be adjusted to include the ID for educational purposes
     return `This action returns the message #${id}`;
+  }
+
+  @Post() // Maps HTTP requests of type POST (POST /messages)
+  create() {
+    return 'This action adds a new message';
   }
 }

@@ -11,3 +11,9 @@ GET {{baseUrl}}/messages
 # @name findOne
 
 GET {{baseUrl}}/messages/1
+
+### 3. MessagesController (POST - create)
+
+# @name create
+
+POST {{baseUrl}}/messages
