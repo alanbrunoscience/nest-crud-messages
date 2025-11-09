@@ -17,3 +17,9 @@ GET {{baseUrl}}/messages/1
 # @name create
 
 POST {{baseUrl}}/messages
+Content-Type: application/json
+
+{
+  "author": "John Doe",
+  "message": "This is a new message."
+}

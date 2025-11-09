@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 @Controller('messages')
 export class MessagesController {
@@ -15,7 +15,7 @@ export class MessagesController {
   }
 
   @Post() // Maps HTTP requests of type POST (POST /messages)
-  create() {
-    return 'This action adds a new message';
+  create(@Body() body: any) {
+    return body;
   }
 }
