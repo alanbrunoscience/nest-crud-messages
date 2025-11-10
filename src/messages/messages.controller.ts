@@ -1,7 +1,16 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Post,
+} from '@nestjs/common';
 
 @Controller('messages')
 export class MessagesController {
+  @HttpCode(HttpStatus.ACCEPTED)
   @Get() // Maps HTTP requests of type GET (GET /messages)
   findAll() {
     return 'This action returns all messages';
