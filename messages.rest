@@ -52,3 +52,15 @@ Content-Type: application/json
 # @name remove
 
 DELETE {{baseUrl}}/messages/1
+
+### 7. MessagesController (GET - findAll with Query Params)
+
+# @name findAllFiltered
+
+GET {{baseUrl}}/messages?author=John%20Doe&limit=10
+
+### 8. MessagesController (GET - findAll with just one filter)
+
+# @name findAllByAuthor
+
+GET {{baseUrl}}/messages?author=Max%20Verstappen

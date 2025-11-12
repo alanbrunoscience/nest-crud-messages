@@ -9,6 +9,7 @@ import {
   Patch,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 
 @Controller('messages')
@@ -20,8 +21,17 @@ export class MessagesController {
 
   @HttpCode(HttpStatus.ACCEPTED)
   @Get() // Maps HTTP requests of type GET (GET /messages)
-  findAll() {
-    return 'This action returns all messages';
+  findAll(@Query('author') author: string, @Query('limit') limit: string) {
+    if (author && limit) {
+      return `This action returns ${limit} messages filtered by author: ${author}`;
+    }
+    if (author) {
+      return `This action returns all messages filtered by author: ${author}`;
+    }
+    if (limit) {
+      return `This action returns ${limit} messages`;
+    }
+    return 'This action returns all messages (unfiltered)';
   }
 
   @Get(':id') // Adds the @Get decorator with the route parameter :id (GET /messages/:id)
