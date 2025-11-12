@@ -5,11 +5,18 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Post,
+  Put,
 } from '@nestjs/common';
 
 @Controller('messages')
 export class MessagesController {
+  @Post() // Maps HTTP requests of type POST (POST /messages)
+  create(@Body() body: any) {
+    return body;
+  }
+
   @HttpCode(HttpStatus.ACCEPTED)
   @Get() // Maps HTTP requests of type GET (GET /messages)
   findAll() {
@@ -23,8 +30,19 @@ export class MessagesController {
     return `This action returns the message #${id}`;
   }
 
-  @Post() // Maps HTTP requests of type POST (POST /messages)
-  create(@Body() body: any) {
-    return body;
+  @Put(':id')
+  update(@Param('id') id: string, @Body() body: any) {
+    return {
+      id,
+      ...body,
+    };
+  }
+
+  @Patch(':id')
+  partialUpdate(@Param('id') id: string, @Body() body: any) {
+    return {
+      id,
+      ...body,
+    };
   }
 }
