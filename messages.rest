@@ -46,3 +46,9 @@ Content-Type: application/json
 {
   "message": "This is a new updated message."
 }
+
+### 6. MessagesController (DELETE - remove)
+
+# @name remove
+
+DELETE {{baseUrl}}/messages/1
