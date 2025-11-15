@@ -11,9 +11,12 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
+import { MessagesService } from './messages.service';
 
 @Controller('messages')
 export class MessagesController {
+  constructor(private readonly messagesService: MessagesService) {}
+
   @Post() // Maps HTTP requests of type POST (POST /messages)
   create(@Body() body: any) {
     return body;
